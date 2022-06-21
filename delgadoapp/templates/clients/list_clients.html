@@ -27,6 +27,7 @@
                     <th scope="col">Telefone</th>
                     <th scope="col">E-mail</th>
                     <th scope="col">Genero</th>
+                    <th scope="col">Profissao</th>
                     <th scope="col">Redes sociais</th>
                     <th scope="col"></th>
                     <th scope="col"></th>
@@ -43,6 +44,7 @@
                             <td>{{ client.cell_phone }}</td>
                             <td>{{ client.email }}</td>
                             <td>{{ client.gender }}</td>
+                            <td>{{ client.job }}</td>
                             <td>
                                 {% for client_socialnetwork in client_socialnetworks %}
                                     {% if client_socialnetwork.client_id == client.id %}

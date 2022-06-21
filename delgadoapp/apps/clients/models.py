@@ -16,6 +16,12 @@ class Client(models.Model):
         ('O', 'Outro'),
     )
     gender = models.CharField('Genero', max_length=1, choices=GENDER_CHOICES)
+    JOB_CHOICES = (
+        ('TL', 'Tech Lead'),
+        ('PM', 'Product Manager'),
+        ('ES', 'Engenheiro de Software'),
+    )
+    job = models.CharField('Profissao', max_length=2, choices=JOB_CHOICES)
     client_socialnetwork = models.ManyToManyField(Socialnetwork, through='ClientSocialnetwork', blank=True)
     
     class Meta:
