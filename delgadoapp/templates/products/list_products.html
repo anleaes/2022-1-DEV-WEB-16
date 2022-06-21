@@ -2,7 +2,7 @@
 
 {% block title %}
 
-    Lista de Produtos - {{ block.super }}
+    Pagamentos - {{ block.super }}
 
 {% endblock title %}
 
@@ -10,20 +10,20 @@
 
     <div class="container">
         <br />
-        <h5><b>Lista de Produtos</b></h5>
+        <h5><b>Pagamentos</b></h5>
         <div class="row">
             <div class ="col-md-12">
                 <br />
-                    <a href="{% url 'products:add_product' %}">Cadastro de novo produto</a>
+                    <a href="{% url 'products:add_product' %}">Fazer um pagamento</a>
                 <br />
                 <br />
                 <table class="table table-hover">
                 <thead>
                     <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Nome</th>
-                    <th scope="col">Descricao</th>
-                    <th scope="col">Data de fabricacao</th>
+                    <th scope="col">Funcionário</th>
+                    <th scope="col">Cargo</th>
+                    <th scope="col">Salário</th>
                     <th scope="col">Ativo</th>
                     <th scope="col">Categoria</th>
                     <th scope="col">Foto</th>

@@ -22,6 +22,13 @@ class Client(models.Model):
         ('ES', 'Engenheiro de Software'),
     )
     job = models.CharField('Profissao', max_length=2, choices=JOB_CHOICES)
+    DEPARTAMENT_CHOICES = (
+        ('PEX', 'Investment Plataform'),
+        ('BRK', 'Broker'),
+        ('OB', 'Onboarding'),
+        ('TR', 'Trade'),
+    )
+    departament = models.CharField('Departamento', max_length=3, choices=DEPARTAMENT_CHOICES)
     client_socialnetwork = models.ManyToManyField(Socialnetwork, through='ClientSocialnetwork', blank=True)
     
     class Meta:
