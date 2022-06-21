@@ -60,7 +60,8 @@
                                 <a href="{% url 'clients:delete_client' client.id %}" class="btn btn-danger btn-sm ">Excluir</a>
                             </td>
                             <td>   
-                                 <a href="{% url 'orders:add_order' client.id %}" class="btn btn-danger btn-sm ">Pagamento</a>
+                                 <!-- <a href="{% url 'orders:add_order' client.id %}" class="btn btn-danger btn-sm ">Pagamento</a> -->
+                                 <a href="{% url 'products:list_products' %}" class="btn btn-sm btn-primary ">Pagamento</a>
                             </td>
                         </tr> 
                     {% endfor %}
