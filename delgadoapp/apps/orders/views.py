@@ -1,16 +1,17 @@
+from ast import Or
 from django.shortcuts import render, get_object_or_404, redirect
 from .forms import OrderForm, OrderItemForm
 from .models import Order , OrderItem, Product, Client
 
 # Create your views here.
-def add_order(request, id_client):
+def add_order(request):
     template_name = 'orders/add_order.html'
     context = {}
     if request.method == 'POST':
         form = OrderForm(request.POST)
         if form.is_valid():
             f = form.save(commit=False)
-            f.client = Client.objects.get(id=id_client)
+            # f.client = Client.objects.get(id=id_client)
             f.save()
             form.save_m2m()
             return redirect('orders:list_orders')
@@ -20,7 +21,7 @@ def add_order(request, id_client):
 
 def list_orders(request):
     template_name = 'orders/list_orders.html'
-    orders = Order.objects.filter()
+    orders = OrderItem.objects.filter()
     # order_items = OrderItem.objects.filter()
     # products = Product.objects.filter()
     # clients = Client.objects.filter()
@@ -44,7 +45,7 @@ def add_order_item(request):
         form = OrderItemForm(request.POST)
         if form.is_valid():
             f = form.save(commit=False)
-            # f.order = Order.objects.get()
+            #f.order = Order.objects.get()
             f.save()
             form.save_m2m()
             return redirect('orders:list_orders')
@@ -58,14 +59,14 @@ def delete_order_item(request, id_order_item):
     return redirect('orders:list_orders')
 
 def edit_order_status(request, id_order):
-    template_name = 'orders/edit_order_status.html'
+    template_name = 'orders/add_order_item.html'
     context ={}
-    order = get_object_or_404(Order, id=id_order)
+    order = get_object_or_404(OrderItem, id=id_order)
     if request.method == 'POST':
-        form = OrderForm(request.POST, instance=order)
+        form = OrderItemForm(request.POST, instance=order)
         if form.is_valid():
             form.save()
             return redirect('orders:list_orders')
-    form = OrderForm(instance=order)
+    form = OrderItemForm(instance=order)
     context['form'] = form
     return render(request, template_name, context)
