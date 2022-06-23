@@ -1,3 +1,4 @@
+from typing import Tuple
 from django.db import models
 from socialnetworks.models import Socialnetwork
 
@@ -29,7 +30,11 @@ class Client(models.Model):
         ('TR', 'Trade'),
     )
     departament = models.CharField('Departamento', max_length=3, choices=DEPARTAMENT_CHOICES)
-    client_socialnetwork = models.ManyToManyField(Socialnetwork, through='ClientSocialnetwork', blank=True)
+    SOCIAL_NETWORK = [] 
+    socialNetworks = Socialnetwork.objects.filter()
+    for socialNetwork in socialNetworks:
+        SOCIAL_NETWORK.append({ socialNetwork.name, '1' })
+    client_socialnetwork = models.ManyToManyField(Socialnetwork, through='ClientSocialnetwork', blank=True, choices=SOCIAL_NETWORK)
     
     class Meta:
         verbose_name = 'Cliente'

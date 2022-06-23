@@ -2,7 +2,7 @@
 
 {% block title %}
 
-    Lista de Redes Sociais - {{ block.super }}
+    Lista de Genero - {{ block.super }}
 
 {% endblock title %}
 
@@ -10,19 +10,20 @@
 
     <div class="container">
         <br />
-        <h5><b>Lista de Redes Sociais</b></h5>
+        <h5><b>Lista de Genêros</b></h5>
         <div class="row">
             <div class ="col-md-12">
                 <br />
-                    <a href="{% url 'socialnetworks:add_socialnetwork' %}">Cadastro de nova rede social</a>
+                    <a href="{% url 'socialnetworks:add_socialnetwork' %}">Cadastrar novo genero</a>
                 <br />
                 <br />
                 <table class="table table-hover">
                 <thead>
                     <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Nome</th>
+                    <th scope="col">Genêro</th>
                     <th scope="col">Descricao</th>
+                    <th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody>

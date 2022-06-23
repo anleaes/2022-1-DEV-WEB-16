@@ -9,7 +9,7 @@ class Socialnetwork(models.Model):
     
     class Meta:
         verbose_name = 'Rede Social'
-        verbose_name_plural = 'Redes Sociais'
+        verbose_name_plural = 'Genero'
         ordering =['id']
 
     def __str__(self):
