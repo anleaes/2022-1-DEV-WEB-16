@@ -31,7 +31,7 @@
                 </div>
                 <div class="form-group">
                     <label for="{{ form.is_active.id_for_label }}">Departamento</label>
-                    {{ form.is_active }}
+                    {{ form.is_active|add_class:"form-control" }}
                 </div>
                 <div class="form-group">
                     <label for="{{ form.category.id_for_label }}">Data do pagamento</label>

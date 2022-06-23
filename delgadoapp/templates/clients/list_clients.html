@@ -22,14 +22,13 @@
                     <tr>
                     <th scope="col">#</th>
                     <th scope="col">Nome</th>
-                    <!-- <th scope="col">Sobrenome</th> -->
                     <th scope="col">Endereço</th>
                     <th scope="col">Telefone</th>
                     <th scope="col">E-mail</th>
-                    <th scope="col">Genêro</th>
                     <th scope="col">Profissão</th>
                     <th scope="col">Departamento</th>
                     <th scope="col">Genero</th>
+                    <th scope="col"></th>
                     <th scope="col"></th>
                     <th scope="col"></th>
                     </tr>
@@ -39,20 +38,15 @@
                         <tr>
                             <th scope="row">{{ client.id }}</th>
                             <td>{{ client.first_name }}</td>
-                            <!-- <td>{{ client.last_name }}</td> -->
                             <td>{{ client.address }}</td>
                             <td>{{ client.cell_phone }}</td>
                             <td>{{ client.email }}</td>
-                            <td>{{ client.gender }}</td>
                             <td>{{ client.job }}</td>
                             <td>{{ client.departament }}</td>
+                            <td>{{ client.gender }}</td>
                             <td>
-                                {% for client_socialnetwork in client_socialnetworks %}
-                                    {% if client_socialnetwork.client_id == client.id %}
-                                        <li>{{ client_socialnetwork.socialnetwork }}</li>
-                                    {% endif %}
-                                {% endfor %}
-                            </td>
+                            
+                             </td>
                             <td>
                                 <a href="{% url 'clients:edit_client' client.id %}" class="btn btn-primary btn-sm">Editar</a>
                             </td>
@@ -60,7 +54,6 @@
                                 <a href="{% url 'clients:delete_client' client.id %}" class="btn btn-danger btn-sm ">Excluir</a>
                             </td>
                             <td>   
-                                 <!-- <a href="{% url 'orders:add_order' client.id %}" class="btn btn-danger btn-sm ">Pagamento</a> -->
                                  <a href="{% url 'products:add_product'%}" class="btn btn-sm btn-primary ">Pagamento</a>
                             </td>
                         </tr> 

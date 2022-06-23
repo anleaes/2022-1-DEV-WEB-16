@@ -12,7 +12,13 @@ class Product(models.Model):
     photo = models.ImageField('Foto', upload_to='photos')
     doc = models.FileField('Documentos', upload_to='docs')
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    
+
+    # EMPLOYEE_NAME = [] 
+    # employee = Category.objects.filter()
+    # for employ in employee:
+    #     EMPLOYEE_NAME.append({ employ.name, '1' })
+    # employee_name = models.ManyToManyField(Category, through='EmployeeName', blank=True, choices=EMPLOYEE_NAME)
+
     class Meta:
         verbose_name = 'Produto'
         verbose_name_plural = 'Produtos'

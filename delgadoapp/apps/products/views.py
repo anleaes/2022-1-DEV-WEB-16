@@ -14,6 +14,7 @@ def add_product(request):
             form.save_m2m()
             return redirect('products:list_products')
     form = ProductForm()
+    #print(form)
     context['form'] = form
     return render(request, template_name, context)
 
