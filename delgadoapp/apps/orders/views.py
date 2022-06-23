@@ -21,14 +21,14 @@ def add_order(request, id_client):
 def list_orders(request):
     template_name = 'orders/list_orders.html'
     orders = Order.objects.filter()
-    order_items = OrderItem.objects.filter()
-    products = Product.objects.filter()
-    clients = Client.objects.filter()
+    # order_items = OrderItem.objects.filter()
+    # products = Product.objects.filter()
+    # clients = Client.objects.filter()
     context = {
         'orders': orders,
-        'order_items': order_items,
-        'products': products,
-        'clients': clients
+        # 'order_items': order_items,
+        # 'products': products,
+        # 'clients': clients
     }
     return render(request, template_name, context)
 
@@ -37,14 +37,14 @@ def delete_order(request, id_order):
     order.delete()
     return redirect('orders:list_orders')
 
-def add_order_item(request, id_order):
+def add_order_item(request):
     template_name = 'orders/add_order_item.html'
     context = {}
     if request.method == 'POST':
         form = OrderItemForm(request.POST)
         if form.is_valid():
             f = form.save(commit=False)
-            f.order = Order.objects.get(id=id_order)
+            f.order = Order.objects.get()
             f.save()
             form.save_m2m()
             return redirect('orders:list_orders')
