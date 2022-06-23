@@ -17,17 +17,17 @@
             <div class ="col-md-12">
                 <form action="" method="POST">
                 {% csrf_token %}
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label for="{{ form.quantity.id_for_label }}">Departamento</label>
-                    {{ form.quantity|add_class:"form-control" }}
-                </div>
+                    {{ form.project|add_class:"form-control" }}
+                </div> -->
                 <div class="form-group">
                     <label for="{{ form.unitary_price.id_for_label }}">Nome do projeto</label>
-                    {{ form.unitary_price|add_class:"form-control" }}
+                    {{ form.project|add_class:"form-control" }}
                 </div>
                 <div class="form-group">
                     <label for="{{ form.product.id_for_label }}">Descricao</label>
-                    {{ form.product|add_class:"form-control" }}
+                    {{ form.description|add_class:"form-control" }}
                 </div>
                     <button type="submit" class="btn btn-primary">Salvar</button>       
                 </form>

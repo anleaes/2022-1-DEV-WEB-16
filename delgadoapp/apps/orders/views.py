@@ -44,7 +44,7 @@ def add_order_item(request):
         form = OrderItemForm(request.POST)
         if form.is_valid():
             f = form.save(commit=False)
-            f.order = Order.objects.get()
+            # f.order = Order.objects.get()
             f.save()
             form.save_m2m()
             return redirect('orders:list_orders')
