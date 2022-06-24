@@ -1,23 +1,7 @@
 from ast import Or
 from django.shortcuts import render, get_object_or_404, redirect
-from .forms import OrderForm, OrderItemForm
-from .models import Order , OrderItem, Product, Client
-
-# Create your views here.
-def add_order(request):
-    template_name = 'orders/add_order.html'
-    context = {}
-    if request.method == 'POST':
-        form = OrderForm(request.POST)
-        if form.is_valid():
-            f = form.save(commit=False)
-            # f.client = Client.objects.get(id=id_client)
-            f.save()
-            form.save_m2m()
-            return redirect('orders:list_orders')
-    form = OrderForm()
-    context['form'] = form
-    return render(request, template_name, context)
+from .forms import OrderItemForm
+from .models import OrderItem
 
 def list_orders(request):
     template_name = 'orders/list_orders.html'
@@ -33,11 +17,6 @@ def list_orders(request):
     }
     return render(request, template_name, context)
 
-def delete_order(request, id_order):
-    order = Order.objects.get(id=id_order)
-    order.delete()
-    return redirect('orders:list_orders')
-
 def add_order_item(request):
     template_name = 'orders/add_order_item.html'
     context = {}
@@ -45,7 +24,6 @@ def add_order_item(request):
         form = OrderItemForm(request.POST)
         if form.is_valid():
             f = form.save(commit=False)
-            #f.order = Order.objects.get()
             f.save()
             form.save_m2m()
             return redirect('orders:list_orders')

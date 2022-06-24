@@ -1,7 +1,7 @@
 from typing import Tuple
 from django.db import models
 from socialnetworks.models import Socialnetwork
-# from orders.models import OrderItem
+from orders.models import OrderItem
 
 # Create your models here.
 class Client(models.Model):
@@ -28,7 +28,7 @@ class Client(models.Model):
     departament = models.CharField('Departamento', max_length=3, choices=DEPARTAMENT_CHOICES)
 
     gender = models.ForeignKey( Socialnetwork, on_delete=models.CASCADE)
-    # project = models.ManyToManyField(OrderItem, through='ClientProject', blank=True)
+    project = models.ManyToManyField(OrderItem, through='ClientProject', blank=True)
     
     class Meta:
         verbose_name = 'Cliente'
@@ -57,7 +57,7 @@ class ClientProject(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
     client = models.ForeignKey(Client, on_delete=models.CASCADE)
-    # project = models.ForeignKey(OrderItem, on_delete=models.CASCADE)
+    project = models.ForeignKey(OrderItem, on_delete=models.CASCADE)
 
     class Meta:
         verbose_name = 'Funcionário do projeto'
