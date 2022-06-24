@@ -19,13 +19,13 @@ def add_client(request):
 
 def list_clients(request):
     template_name = 'clients/list_clients.html'
-    client_socialnetworks = ClientSocialnetwork.objects.filter()
-    socialnetworks = Socialnetwork.objects.filter()
-    clients = Client.objects.filter()
+    funcionario_projeto = ClientSocialnetwork.objects.filter()
+    projetos = Socialnetwork.objects.filter()
+    funcionarios = Client.objects.filter()
     context = {
-        'clients': clients,
-        'socialnetworks': socialnetworks,
-        'client_socialnetworks': client_socialnetworks
+        'funcionarios': funcionarios,
+        'projetos': projetos,
+        'funcionario_projetos': funcionario_projeto
     }
     return render(request, template_name, context)
 
@@ -50,12 +50,12 @@ def delete_client(request, id_client):
 def search_clients(request):
     template_name = 'clients/list_clients.html'
     query = request.GET.get('query')
-    client_socialnetworks = ClientSocialnetwork.objects.filter()
-    socialnetworks = Socialnetwork.objects.filter()
+    funcionario_projetos = ClientSocialnetwork.objects.filter()
+    projetos = Socialnetwork.objects.filter()
     clients = Client.objects.filter(last_name__icontains=query)
     context = {
         'clients': clients,
-        'socialnetworks': socialnetworks,
-        'client_socialnetworks': client_socialnetworks
+        'projetos': projetos,
+        'client_projetos': funcionario_projetos
     }
     return render(request,template_name, context)

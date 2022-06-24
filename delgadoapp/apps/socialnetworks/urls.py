@@ -6,6 +6,6 @@ app_name = 'projetos'
 urlpatterns = [
     path('', views.lista_projetos, name='lista_projetos'),
     path('adicionar/', views.adiciona_projetos, name='adiciona_projetos'),
-    path('editar/<int:id_socialnetwork>/', views.edit_socialnetwork, name='edit_socialnetwork'),
-    path('excluir/<int:id_socialnetwork>/', views.delete_socialnetwork, name='delete_socialnetwork'),
+    path('editar/<int:id_socialnetwork>/', views.edit_projetos, name='edit_projetos'),
+    path('excluir/<int:id_socialnetwork>/', views.delete_projetos, name='delete_projetos'),
 ]
