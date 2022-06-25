@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .forms import ClientForm
-from .models import Client, Socialnetwork, ClientSocialnetwork
+from .models import Client, Projeto, ClientSocialnetwork
 
 # Create your views here.
 def add_client(request):
@@ -20,7 +20,7 @@ def add_client(request):
 def list_clients(request):
     template_name = 'clients/list_clients.html'
     funcionario_projeto = ClientSocialnetwork.objects.filter()
-    projetos = Socialnetwork.objects.filter()
+    projetos = Projeto.objects.filter()
     funcionarios = Client.objects.filter()
     context = {
         'funcionarios': funcionarios,
@@ -51,7 +51,7 @@ def search_clients(request):
     template_name = 'clients/list_clients.html'
     query = request.GET.get('query')
     funcionario_projetos = ClientSocialnetwork.objects.filter()
-    projetos = Socialnetwork.objects.filter()
+    projetos = Projeto.objects.filter()
     clients = Client.objects.filter(last_name__icontains=query)
     context = {
         'clients': clients,
