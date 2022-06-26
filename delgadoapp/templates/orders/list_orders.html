@@ -34,54 +34,17 @@
                         <tr>
                             <th scope="row">
                                 {{ order.id }}
-                                <!-- {% if order.status == 'Finalizado' or order.status == 'Cancelado' %}
-                                    <p style="color:darkgray;" >{{ order.id }}</p>
-                                {% else %}
-                                    {{ order.id }}
-                                {% endif %} -->
                             </th>
                             <td>
                                 {{ order.project }}
-                                <!-- {% if order.status == 'Finalizado' or order.status == 'Cancelado' %}
-                                    <p style="color:darkgray;" >{{ order.status }}</p>
-                                {% else %}
-                                    {{ order.status }}
-                                {% endif %} -->
                             </td>
                             <td>
                                 {{ order.description }}
-                                <!-- {% for client in clients %}
-                                    {% if order.client_id == client.id %}
-                                        {% if order.status == 'Finalizado' or order.status == 'Cancelado' %}
-                                            <p style="color:darkgray;" >{{ client.first_name }} {{ client.last_name }}</p>
-                                        {% else %}
-                                            {{ client.first_name }} {{ client.last_name }}
-                                        {% endif %}
-                                    {% endif %}
-                                {% endfor %}    -->
                             </td>
                             <td>
-                                <!-- {% if order.status == 'Finalizado' or order.status == 'Cancelado' %}
-                                    <p style="color:darkgray;" >R$ {{ order.total_price }}</p>
-                                {% else %}
-                                    R$ {{ order.total_price }}
-                                {% endif %} -->
                             </td>
                             <td>
-                                <!-- {% if order.status == 'Finalizado' or order.status == 'Cancelado' %}
-                                    <a href="#" class="btn btn-primary btn-sm disabled">Adicionar itens</a>
-                                {% else %} -->
-                                    <!-- <a href="{% url 'orders:add_order_item' %}" class="btn btn-primary btn-sm">Adicionar itens</a> -->
-                                <!-- {% endif %} -->
                                 <br /><br />
-                                <!-- {% for order_item in order_items %}
-                                    {% if order_item.order_id == order.id %}
-                                        Produto: {{ order_item.product}}<br /> 
-                                        Quantidade: {{ order_item.quantity}}<br />
-                                        Valor Unitario: R$ {{ order_item.unitary_price }}<br />
-                                        <a href="{% url 'orders:delete_order_item' order_item.id %}">Excluir Item</a><br /><br />
-                                    {% endif %}
-                                {% endfor %} -->
                             </td>
                             <td>
                                 <a href="{% url 'orders:edit_order_status' order.id %}" class="btn btn-primary btn-sm ">Editar</a>

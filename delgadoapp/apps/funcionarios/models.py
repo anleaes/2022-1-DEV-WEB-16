@@ -4,7 +4,7 @@ from projetos.models import Projeto
 from orders.models import OrderItem
 
 # Create your models here.
-class Client(models.Model):
+class Funcionario(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
     first_name = models.CharField('Nome', max_length=50)
@@ -28,20 +28,20 @@ class Client(models.Model):
     departament = models.CharField('Departamento', max_length=3, choices=DEPARTAMENT_CHOICES)
 
     gender = models.ForeignKey( Projeto, on_delete=models.CASCADE)
-    project = models.ManyToManyField(OrderItem, through='ClientProject', blank=True)
+    project = models.ManyToManyField(OrderItem, through='FuncionarioProject', blank=True)
     
     class Meta:
-        verbose_name = 'Cliente'
-        verbose_name_plural = 'Clientes'
+        verbose_name = 'Funcionario'
+        verbose_name_plural = 'Funcionarios'
         ordering =['id']
 
     def __str__(self):
         return self.first_name
 
-class ClientSocialnetwork(models.Model):
+class FuncionarioProjeto(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
-    client = models.ForeignKey(Client, on_delete=models.CASCADE)
+    funcionario = models.ForeignKey(Funcionario, on_delete=models.CASCADE)
     projeto = models.ForeignKey(Projeto, on_delete=models.CASCADE)
 
     class Meta:
@@ -53,10 +53,10 @@ class ClientSocialnetwork(models.Model):
         return self.projeto.name
 
 
-class ClientProject(models.Model):
+class FuncionarioProject(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
-    client = models.ForeignKey(Client, on_delete=models.CASCADE)
+    funcionario = models.ForeignKey(Funcionario, on_delete=models.CASCADE)
     project = models.ForeignKey(OrderItem, on_delete=models.CASCADE)
 
     class Meta:

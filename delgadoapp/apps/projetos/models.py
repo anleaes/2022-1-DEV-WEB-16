@@ -8,8 +8,8 @@ class Projeto(models.Model):
     description = models.TextField('Descricao', max_length=100) 
     
     class Meta:
-        verbose_name = 'Rede Social'
-        verbose_name_plural = 'Genero'
+        verbose_name = 'Projeto'
+        verbose_name_plural = 'Projetos'
         ordering =['id']
 
     def __str__(self):

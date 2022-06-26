@@ -25,10 +25,10 @@ def lista_projetos(request):
     }
     return render(request, template_name, context)
 
-def edit_projetos(request, id_socialnetwork):
+def edit_projetos(request, id_projeto):
     template_name = 'projetos/adiciona_projetos.html'
     context ={}
-    projetos = get_object_or_404(Projeto, id=id_socialnetwork)
+    projetos = get_object_or_404(Projeto, id=id_projeto)
     if request.method == 'POST':
         form = ProjetoForm(request.POST, instance=projetos)
         if form.is_valid():
@@ -38,7 +38,7 @@ def edit_projetos(request, id_socialnetwork):
     context['form'] = form
     return render(request, template_name, context)
 
-def delete_projetos(request, id_socialnetwork):
-    projeto = Projeto.objects.get(id=id_socialnetwork)
+def delete_projetos(request, id_projeto):
+    projeto = Projeto.objects.get(id=id_projeto)
     projeto.delete()
     return redirect('projetos:lista_projetos')

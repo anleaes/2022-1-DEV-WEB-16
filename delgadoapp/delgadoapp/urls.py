@@ -25,7 +25,7 @@ urlpatterns = [
     path('categorias/', include('categories.urls', namespace='categories')),
     path('redessociais/', include('projetos.urls', namespace='projetos')),
     path('produtos/', include('products.urls', namespace='products')),
-    path('clientes/', include('clients.urls', namespace='clients')),
+    path('funcionarios/', include('funcionarios.urls', namespace='funcionarios')),
     path('pedidos/', include('orders.urls', namespace='orders')),
     path('contas/', include('accounts.urls', namespace='accounts')),
 

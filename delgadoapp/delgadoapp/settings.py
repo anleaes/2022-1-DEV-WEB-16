@@ -48,7 +48,7 @@ INSTALLED_APPS = [
     'categories.apps.CategoriesConfig', 
     'projetos.apps.ProjetosConfig',
     'products.apps.ProductsConfig',
-    'clients.apps.ClientsConfig',
+    'funcionarios.apps.FuncionariosConfig',
     'orders.apps.OrdersConfig',
     'accounts.apps.AccountsConfig',
 

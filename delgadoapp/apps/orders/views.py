@@ -6,14 +6,8 @@ from .models import OrderItem
 def list_orders(request):
     template_name = 'orders/list_orders.html'
     orders = OrderItem.objects.filter()
-    # order_items = OrderItem.objects.filter()
-    # products = Product.objects.filter()
-    # clients = Client.objects.filter()
     context = {
         'orders': orders,
-        # 'order_items': order_items,
-        # 'products': products,
-        # 'clients': clients
     }
     return render(request, template_name, context)
 
