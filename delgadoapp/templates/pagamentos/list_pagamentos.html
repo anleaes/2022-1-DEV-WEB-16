@@ -2,7 +2,7 @@
 
 {% block title %}
 
-    Pagamentos - {{ block.super }}
+    Lista de Pagamentos - {{ block.super }}
 
 {% endblock title %}
 
@@ -14,7 +14,7 @@
         <div class="row">
             <div class ="col-md-12">
                 <br />
-                    <a href="{% url 'products:add_product' %}">Fazer um pagamento</a>
+                    <a href="{% url 'pagamentos:add_pagamento' %}">Fazer um pagamento</a>
                 <br />
                 <br />
                 <table class="table table-hover">
@@ -34,32 +34,32 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for product in products %}
+                    {% for pagamento in pagamentos %}
                         <tr>
-                            <th scope="row">{{ product.id }}</th>
-                            <td>{{ product.name }}</td>
-                            <td>{{ product.description }}</td>
-                            <td>{{ product.date_fabrication }}</td>
+                            <th scope="row">{{ pagamento.id }}</th>
+                            <td>{{ pagamento.name }}</td>
+                            <td>{{ pagamento.description }}</td>
+                            <td>{{ pagamento.date_fabrication }}</td>
                             <td>
-                                {% if product.is_active == True %}
+                                {% if pagamento.is_active == True %}
                                     Ativo
                                 {% endif %}
-                                {% if product.is_active == False %}
+                                {% if pagamento.is_active == False %}
                                     Inativo
                                 {% endif %}
                             </td>
-                            <td>{{ product.category }}</td>
+                            <td>{{ pagamento.category }}</td>
                             <td>
-                                <img src="{{ product.photo.url }}" width="50" height="50">
+                                <img src="{{ pagamento.photo.url }}" width="50" height="50">
                             </td>
                             <td>
-                                <a href="{{ product.doc.url }}" >{{ product.doc.url }}</a>
+                                <a href="{{ pagamento.doc.url }}" >{{ pagamento.doc.url }}</a>
                             </td>
                             <td>
-                                <a href="{% url 'products:edit_product' product.id %}" class="btn btn-primary btn-sm">Editar</a>
+                                <a href="{% url 'pagamento:edit_pagamento' pagamento.id %}" class="btn btn-primary btn-sm">Editar</a>
                             </td>
                             <td>    
-                                <a href="{% url 'products:delete_product' product.id %}" class="btn btn-danger btn-sm ">Excluir</a>
+                                <a href="{% url 'pagamento:delete_pagamento' paganto.id %}" class="btn btn-danger btn-sm ">Excluir</a>
                             </td>
                         </tr> 
                     {% endfor %}

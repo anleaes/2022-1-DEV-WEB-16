@@ -2,7 +2,7 @@ from django.db import models
 from categories.models import Category
 
 # Create your models here.
-class Product(models.Model):
+class Pagamento(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
     name = models.CharField('Nome', max_length=50)
@@ -13,15 +13,9 @@ class Product(models.Model):
     doc = models.FileField('Documentos', upload_to='docs')
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
-    # EMPLOYEE_NAME = [] 
-    # employee = Category.objects.filter()
-    # for employ in employee:
-    #     EMPLOYEE_NAME.append({ employ.name, '1' })
-    # employee_name = models.ManyToManyField(Category, through='EmployeeName', blank=True, choices=EMPLOYEE_NAME)
-
     class Meta:
-        verbose_name = 'Produto'
-        verbose_name_plural = 'Produtos'
+        verbose_name = 'Pagamento'
+        verbose_name_plural = 'Pagamentos'
         ordering =['id']
 
     def __str__(self):
