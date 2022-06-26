@@ -1,6 +1,6 @@
 from typing import Tuple
 from django.db import models
-from projetos.models import Projeto
+from generos.models import Genero
 from orders.models import OrderItem
 
 # Create your models here.
@@ -27,7 +27,7 @@ class Funcionario(models.Model):
     )
     departament = models.CharField('Departamento', max_length=3, choices=DEPARTAMENT_CHOICES)
 
-    gender = models.ForeignKey( Projeto, on_delete=models.CASCADE)
+    gender = models.ForeignKey( Genero, on_delete=models.CASCADE)
     project = models.ManyToManyField(OrderItem, through='FuncionarioProject', blank=True)
     
     class Meta:
@@ -38,19 +38,19 @@ class Funcionario(models.Model):
     def __str__(self):
         return self.first_name
 
-class FuncionarioProjeto(models.Model):
+class FuncionarioGenero(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
     funcionario = models.ForeignKey(Funcionario, on_delete=models.CASCADE)
-    projeto = models.ForeignKey(Projeto, on_delete=models.CASCADE)
+    genero = models.ForeignKey(Genero, on_delete=models.CASCADE)
 
     class Meta:
-        verbose_name = 'Item de Redes Social'
-        verbose_name_plural = 'Itens de Rede Social'
+        verbose_name = 'Genero'
+        verbose_name_plural = 'Generos'
         ordering =['id']
 
     def __str__(self):
-        return self.projeto.name
+        return self.genero.name
 
 
 class FuncionarioProject(models.Model):

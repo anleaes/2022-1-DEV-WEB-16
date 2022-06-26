@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .forms import FuncionarioForm
-from .models import Projeto, FuncionarioProjeto, Funcionario
+from .models import Genero, FuncionarioGenero, Funcionario
 
 # Create your views here.
 def add_funcionario(request):
@@ -19,13 +19,13 @@ def add_funcionario(request):
 
 def list_funcionarios(request):
     template_name = 'funcionarios/list_funcionarios.html'
-    funcionario_projeto = FuncionarioProjeto.objects.filter()
-    projetos = Projeto.objects.filter()
+    funcionario_genero = FuncionarioGenero.objects.filter()
+    generos = Genero.objects.filter()
     funcionarios = Funcionario.objects.filter()
     context = {
         'funcionarios': funcionarios,
-        'projetos': projetos,
-        'funcionario_projetos': funcionario_projeto
+        'generos': generos,
+        'funcionario_generos': funcionario_genero
     }
     return render(request, template_name, context)
 
@@ -50,12 +50,12 @@ def delete_funcionario(request, id_funcionario):
 def search_funcionarios(request):
     template_name = 'funcionarios/list_funcionarios.html'
     query = request.GET.get('query')
-    funcionario_projetos = FuncionarioProjeto.objects.filter()
-    projetos = Projeto.objects.filter()
+    funcionario_generos = FuncionarioGenero.objects.filter()
+    generos = Genero.objects.filter()
     funcionarios = Funcionario.objects.filter(last_name__icontains=query)
     context = {
         'funcionarios': funcionarios,
-        'projetos': projetos,
-        'funcionario_projetos': funcionario_projetos
+        'generos': generos,
+        'funcionario_generos': funcionario_generos
     }
     return render(request,template_name, context)

@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'core.apps.CoreConfig',
     'categories.apps.CategoriesConfig', 
-    'projetos.apps.ProjetosConfig',
+    'generos.apps.GenerosConfig',
     'pagamentos.apps.PagamentosConfig',
     'funcionarios.apps.FuncionariosConfig',
     'orders.apps.OrdersConfig',

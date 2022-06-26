@@ -1,7 +1,7 @@
 from django.apps import AppConfig
 
 
-class ProjetosConfig(AppConfig):
+class GenerosConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'projetos'
-    verbose_name = 'Genero'
+    name = 'generos'
+    verbose_name = 'generos'

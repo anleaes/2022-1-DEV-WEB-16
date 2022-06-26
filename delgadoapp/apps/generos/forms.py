@@ -1,8 +1,8 @@
 from django import forms
-from .models import Projeto
+from .models import Genero
 
-class ProjetoForm(forms.ModelForm):
+class GeneroForm(forms.ModelForm):
 
     class Meta:
-        model = Projeto
+        model = Genero
         exclude = ('created_on' , 'updated_on',)
