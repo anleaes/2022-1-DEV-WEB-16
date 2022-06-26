@@ -49,7 +49,7 @@ INSTALLED_APPS = [
     'generos.apps.GenerosConfig',
     'pagamentos.apps.PagamentosConfig',
     'funcionarios.apps.FuncionariosConfig',
-    'orders.apps.OrdersConfig',
+    'projetos.apps.ProjetosConfig',
     'accounts.apps.AccountsConfig',
 
 ]

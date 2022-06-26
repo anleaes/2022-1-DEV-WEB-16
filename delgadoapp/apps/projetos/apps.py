@@ -1,7 +1,7 @@
 from django.apps import AppConfig
 
 
-class OrdersConfig(AppConfig):
+class ProjetosConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'orders'
-    verbose_name = 'Projetos'
+    name = 'projetos'
+    verbose_name = 'projetos'

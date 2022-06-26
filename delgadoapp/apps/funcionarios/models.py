@@ -1,7 +1,7 @@
 from typing import Tuple
 from django.db import models
 from generos.models import Genero
-from orders.models import OrderItem
+from projetos.models import Projeto
 
 # Create your models here.
 class Funcionario(models.Model):
@@ -28,7 +28,7 @@ class Funcionario(models.Model):
     departament = models.CharField('Departamento', max_length=3, choices=DEPARTAMENT_CHOICES)
 
     gender = models.ForeignKey( Genero, on_delete=models.CASCADE)
-    project = models.ManyToManyField(OrderItem, through='FuncionarioProject', blank=True)
+    project = models.ManyToManyField(Projeto, through='FuncionarioProject', blank=True)
     
     class Meta:
         verbose_name = 'Funcionario'
@@ -57,7 +57,7 @@ class FuncionarioProject(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
     funcionario = models.ForeignKey(Funcionario, on_delete=models.CASCADE)
-    project = models.ForeignKey(OrderItem, on_delete=models.CASCADE)
+    project = models.ForeignKey(Projeto, on_delete=models.CASCADE)
 
     class Meta:
         verbose_name = 'Funcionário do projeto'

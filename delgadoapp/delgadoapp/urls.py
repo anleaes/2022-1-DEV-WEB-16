@@ -26,7 +26,7 @@ urlpatterns = [
     path('generos/', include('generos.urls', namespace='generos')),
     path('pagamentos/', include('pagamentos.urls', namespace='pagamentos')),
     path('funcionarios/', include('funcionarios.urls', namespace='funcionarios')),
-    path('pedidos/', include('orders.urls', namespace='orders')),
+    path('projetos/', include('projetos.urls', namespace='projetos')),
     path('contas/', include('accounts.urls', namespace='accounts')),
 
 ]

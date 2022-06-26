@@ -2,7 +2,7 @@
 
 {% block title %}
 
-    Lista de Pedidos - {{ block.super }}
+    Lista de Projetos - {{ block.super }}
 
 {% endblock title %}
 
@@ -14,7 +14,7 @@
         <div class="row">
             <div class ="col-md-12">
                 <br />
-                    <a href="{% url 'orders:add_order_item' %}">Criar novo projeto</a>
+                    <a href="{% url 'projetos:add_projeto' %}">Criar novo projeto</a>
                 <br />
             <br />
                 <table class="table table-hover">
@@ -30,16 +30,16 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for order in orders %}
+                    {% for projeto in projetos %}
                         <tr>
                             <th scope="row">
-                                {{ order.id }}
+                                {{ projeto.id }}
                             </th>
                             <td>
-                                {{ order.project }}
+                                {{ projeto.project }}
                             </td>
                             <td>
-                                {{ order.description }}
+                                {{ projeto.description }}
                             </td>
                             <td>
                             </td>
@@ -47,10 +47,10 @@
                                 <br /><br />
                             </td>
                             <td>
-                                <a href="{% url 'orders:edit_order_status' order.id %}" class="btn btn-primary btn-sm ">Editar</a>
+                                <a href="{% url 'projetos:edit_projeto' projeto.id %}" class="btn btn-primary btn-sm ">Editar</a>
                             </td>
                             <td>
-                                <a href="{% url 'orders:delete_order_item' order.id %}" class="btn btn-danger btn-sm ">Excluir</a>
+                                <a href="{% url 'projetos:delete_projeto' projeto.id %}" class="btn btn-danger btn-sm ">Excluir</a>
                             </td>
                         </tr> 
                     {% endfor %}
