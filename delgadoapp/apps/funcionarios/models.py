@@ -3,7 +3,6 @@ from django.db import models
 from generos.models import Genero
 from projetos.models import Projeto
 
-# Create your models here.
 class Funcionario(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)

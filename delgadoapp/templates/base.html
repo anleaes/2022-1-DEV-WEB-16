@@ -14,7 +14,7 @@
 
     <!-- INICIO: Bloco do Bootstrap a ser incluido -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="/"> Gestão de Pessoas</a>
+        <a class="navbar-brand" href="{% url 'funcionarios:list_funcionarios' %}"> Gestão de Pessoas</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -26,7 +26,6 @@
                         <a class="dropdown-item" href="{% url 'funcionarios:list_funcionarios' %}">Funcionários</a>
                         <a class="dropdown-item" href="{% url 'projetos:list_projetos' %}">Projetos</a>
                         <a class="dropdown-item" href="{% url 'pagamentos:list_pagamentos' %}">Pagamentos</a>
-                        <!-- <a class="dropdown-item" href="{% url 'categories:list_categories' %}">Categorias</a> -->
                         <a class="dropdown-item" href="{% url 'generos:lista_generos' %}">Genero</a>
                     </div>
                 </li>

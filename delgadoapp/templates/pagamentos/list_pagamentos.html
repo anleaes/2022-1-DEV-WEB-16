@@ -7,7 +7,7 @@
 {% endblock title %}
 
 {% block body %}
-
+{% if user.is_authenticated %}
     <div class="container">
         <br />
         <h5><b>Historico de Pagamentos</b></h5>
@@ -26,41 +26,17 @@
                     <th scope="col">Salário</th>
                     <th scope="col">Departamento</th>
                     <th scope="col">Data do pagamento</th>
-                    <!-- <th scope="col">Categoria</th> -->
-                    <!-- <th scope="col">Foto</th> -->
-                    <!-- <th scope="col">Documento</th> -->
-                    <th scope="col"></th>
-                    <th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for pagamento in pagamentos %}
                         <tr>
                             <th scope="row">{{ pagamento.id }}</th>
-                            <td>{{ pagamento.name }}</td>
-                            <td>{{ pagamento.description }}</td>
+                            <td>{{ pagamento.funcionario }}</td>
+                            <td>{{ pagamento.job }}</td>
+                            <td>{{ pagamento.salary }}</td>
+                            <td>{{ pagamento.departament }}</td>
                             <td>{{ pagamento.date_fabrication }}</td>
-                            <td>
-                                {% if pagamento.is_active == True %}
-                                    Ativo
-                                {% endif %}
-                                {% if pagamento.is_active == False %}
-                                    Inativo
-                                {% endif %}
-                            </td>
-                            <td>{{ pagamento.category }}</td>
-                            <td>
-                                <img src="{{ pagamento.photo.url }}" width="50" height="50">
-                            </td>
-                            <td>
-                                <a href="{{ pagamento.doc.url }}" >{{ pagamento.doc.url }}</a>
-                            </td>
-                            <td>
-                                <a href="{% url 'pagamento:edit_pagamento' pagamento.id %}" class="btn btn-primary btn-sm">Editar</a>
-                            </td>
-                            <td>    
-                                <a href="{% url 'pagamento:delete_pagamento' paganto.id %}" class="btn btn-danger btn-sm ">Excluir</a>
-                            </td>
                         </tr> 
                     {% endfor %}
                 </tbody>
@@ -68,5 +44,5 @@
             </div>
         </div>
     </div>
-
+    {% endif %}
 {% endblock body %}

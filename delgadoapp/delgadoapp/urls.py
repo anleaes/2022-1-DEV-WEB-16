@@ -22,7 +22,6 @@ from django.urls import path
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('core.urls', namespace='core')),
-    path('categorias/', include('categories.urls', namespace='categories')),
     path('generos/', include('generos.urls', namespace='generos')),
     path('pagamentos/', include('pagamentos.urls', namespace='pagamentos')),
     path('funcionarios/', include('funcionarios.urls', namespace='funcionarios')),

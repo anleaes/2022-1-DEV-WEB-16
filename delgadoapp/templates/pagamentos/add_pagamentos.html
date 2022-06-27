@@ -18,24 +18,24 @@
                 <form action="" method="POST" enctype="multipart/form-data"> 
                 {% csrf_token %}
                 <div class="form-group">
-                   <label for="{{ form.name.id_for_label }}">Funcionário</label>
-                   {{ form.name|add_class:"form-control" }}
+                   <label for="{{ form.funcionario.id_for_label }}">Funcionário</label>
+                   {{ form.funcionario|add_class:"form-control" }}
                 </div>
                 <div class="form-group">
-                    <label for="{{ form.description.id_for_label }}">Cargo</label>
-                    {{ form.description|add_class:"form-control" }}
+                    <label for="{{ form.job.id_for_label }}">Cargo</label>
+                    {{ form.job|add_class:"form-control" }}
                 </div>
                 <div class="form-group">
-                    <label for="{{ form.date_fabrication.id_for_label }}">Salário</label>
+                    <label for="{{ form.salary.id_for_label }}">Salário</label>
+                    {{ form.salary|add_class:"form-control" }}
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.departament.id_for_label }}">Departamento</label>
+                    {{ form.departament|add_class:"form-control" }}
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.date_fabrication.id_for_label }}">Data do pagamento</label>
                     {{ form.date_fabrication|add_class:"form-control" }}
-                </div>
-                <div class="form-group">
-                    <label for="{{ form.is_active.id_for_label }}">Departamento</label>
-                    {{ form.is_active|add_class:"form-control" }}
-                </div>
-                <div class="form-group">
-                    <label for="{{ form.category.id_for_label }}">Data do pagamento</label>
-                    {{ form.category|add_class:"form-control" }}
                 </div>
                 <!-- <div class="form-group">
                     <label for="{{ form.photo.id_for_label }}">Foto</label>
